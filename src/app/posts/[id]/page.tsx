@@ -22,7 +22,7 @@ const posts = [
   },
 ];
 
-export default function PostPage({ params }) {
+export default function PostPage({ params}) {
   const { id } = params; // Extract the id from route params
 
   // Find the post matching the id
@@ -35,7 +35,7 @@ export default function PostPage({ params }) {
   }
 
   return (
-    <div className="p-8 bg-slate-200">
+    <div className="p-8 bg">
       <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
       <p className="mb-4">{post.content}</p>
       <Link href="/" className="text-blue-500 hover:underline">

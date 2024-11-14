@@ -40,15 +40,7 @@ const HeroSection = () => (
   </div>
 );
 
-const Footer = () => (
-  <footer className="bg-blue-700 text-white text-center p-4 mt-8 shadow-inner">
-    <p>&copy; {new Date().getFullYear()} Postlite-P. All rights reserved.</p>
-    <p className="mt-2">
-      <Link href="/terms" className="hover:underline text-sm">Terms</Link> |
-      <Link href="/privacy" className="hover:underline text-sm"> Privacy Policy</Link>
-    </p>
-  </footer>
-);
+
 
 const Card = () => (
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
