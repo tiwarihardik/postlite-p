@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import SkeletonLoading from './loading'; // Import for loading fallback UI
 import { Suspense } from 'react'; // Import for lazy loading components
-
+import Link from "next/link";
 // Importing custom fonts for the blog
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -43,9 +43,9 @@ export default function RootLayout({
               <div className="container mx-auto flex justify-between items-center">
                 <h1 className="text-3xl font-bold">Postlite-P</h1>
                 <nav>
-                  <a href="/" className="mr-4 hover:underline">Home</a>
-                  <a href="/about" className="hover:underline">About</a>
-                  <a href="/contact" className="ml-4 hover:underline">Contact</a>
+                  <Link href="/" className="mr-4 hover:underline">Home</Link>
+                  <Link href="/about" className="hover:underline">About</Link>
+                  <Link href="/contact" className="ml-4 hover:underline">Contact</Link>
                 </nav>
               </div>
             </header>
