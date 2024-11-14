@@ -35,8 +35,8 @@ export default function PostPage({ params}) {
   }
 
   return (
-    <div className="p-8 bg">
-      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
+    <div className="p-8 shadow-lg bg-slate-200 rounded">
+      <h1 className="text-3xl font-bold mb-4 ">{post.title}</h1>
       <p className="mb-4">{post.content}</p>
       <Link href="/" className="text-blue-500 hover:underline">
         Go back to Home
