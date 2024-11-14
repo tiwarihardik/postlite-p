@@ -1,0 +1,41 @@
+.skeletonContainer {
+    padding: 20px;
+}
+
+.skeletonTitle {
+    height: 24px;
+    width: 60%;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    animation: pulse 1.5s infinite;
+}
+
+.skeletonText {
+    height: 16px;
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    animation: pulse 1.5s infinite;
+}
+
+.skeletonImage {
+    height: 200px;
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #e0e0e0;
+    }
+    50% {
+        background-color: #d0d0d0;
+    }
+    100% {
+        background-color: #e0e0e0;
+    }
+}

@@ -1,101 +1,94 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const posts = [
+  {
+    id: 1,
+    title: "First Blog Post",
+    excerpt: "This is a brief excerpt of the first blog post. Explore more about this exciting topic!",
+    image: "/path/to/image1.jpg", // Replace with your image path
+  },
+  {
+    id: 2,
+    title: "Second Blog Post",
+    excerpt: "This is a brief excerpt of the second blog post. Learn the insights and details here.",
+    image: "/path/to/image2.jpg", // Replace with your image path
+  },
+  {
+    id: 3,
+    title: "Third Blog Post",
+    excerpt: "This is a brief excerpt of the third blog post. Discover the full story in this article.",
+    image: "/path/to/image3.jpg", // Replace with your image path
+  },
+];
+
+
+const HeroSection = () => (
+  <div className=" text-white p-8 text-center ">
+    <h2 className="text-3xl font-bold mb-2 transform hover:rotate-1 transition-transform duration-500">
+      Welcome to Postlite-P!
+    </h2>
+    <p className="mb-4 max-w-2xl mx-auto">
+      A modern blogging platform built with Next.js, designed for easy and powerful content creation.
+    </p>
+    <Link
+      href="/get-started"
+      className="inline-block bg-white text-blue-600 py-2 px-4 rounded shadow-lg hover:shadow-2xl transition duration-200 transform hover:scale-110"
+    >
+      Get Started
+    </Link>
+  </div>
+);
+
+const Footer = () => (
+  <footer className="bg-blue-700 text-white text-center p-4 mt-8 shadow-inner">
+    <p>&copy; {new Date().getFullYear()} Postlite-P. All rights reserved.</p>
+    <p className="mt-2">
+      <Link href="/terms" className="hover:underline text-sm">Terms</Link> |
+      <Link href="/privacy" className="hover:underline text-sm"> Privacy Policy</Link>
+    </p>
+  </footer>
+);
+
+const Card = () => (
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {posts.map(post => (
+      <div
+        key={post.id}
+        className="border rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 bg-white"
+      >
+        <Image
+          src={post.image}
+          alt={post.title}
+          width={400}
+          height={250}
+          className="w-full h-48 object-cover"
+        />
+        <div className="p-4">
+          <h2 className="text-xl font-semibold text-gray-800">{post.title}</h2>
+          <p className="text-gray-700 mb-4">{post.excerpt}</p>
+          <Link
+            href={`/posts/${post.id}`}
+            className="text-blue-500 hover:underline focus:outline focus:ring focus:ring-blue-300"
+          >
+            Read more
+          </Link>
+        </div>
+      </div>
+    ))}
+  </div>
+);
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col min-h-screen">
+      <main className="flex-grow">
+        <HeroSection />
+        <div className="p-8">
+          <h1 className="text-4xl font-bold text-center mb-8">Latest Posts</h1>
+          <Card />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
